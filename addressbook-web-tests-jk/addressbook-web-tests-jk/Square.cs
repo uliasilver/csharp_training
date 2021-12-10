@@ -1,39 +1,38 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace addressbook_web_tests_jk
 {
-    [TestClass]
-    public class UnitTest1
+    class Square: Figure
     {
-        [TestMethod]
-        public void TestMethodSquare()
+        private int size;
+       
+
+        public Square (int size)
         {
-            Square s1 = new Square(5);
-            Square s2 = new Square(10);
-            Square s3 = s1;
+            this.size = size;
 
-            Assert.AreEqual(s1.Size, 5);
-            Assert.AreEqual(s2.Size, 10);
-            Assert.AreEqual(s3.Size, 5);
-
-            s3.Size = 15;
-            Assert.AreEqual(s1.Size, 15);
         }
-
-        [TestMethod]
-        public void TestMethodCircle()
+        public int Size
         {
-            Circle s1 = new Circle(5);
-            Circle s2 = new Circle(10);
-            Circle s3 = s1;
-
-            Assert.AreEqual(s1.Radius, 5);
-            Assert.AreEqual(s2.Radius, 10);
-            Assert.AreEqual(s3.Radius, 5);
-
-            s3.Size = 15;
-            Assert.AreEqual(s1.Radius, 15);
+            get
+            {
+                return size;
+            }
+            set
+            {
+                size = value;
+            }
         }
+        
+
+
+
+
+
+
     }
 }

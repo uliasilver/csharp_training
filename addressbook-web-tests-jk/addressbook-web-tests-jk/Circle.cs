@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace addressbook_web_tests_jk
 {
-    class Circle
+    class Circle: Figure
     {
-        int radius;
+        private int radius;
+        
 
         public Circle(int radius)
         {
-            this.radius = radius
+            this.radius = radius;
         }
 
         public int Radius {
@@ -26,5 +27,6 @@ namespace addressbook_web_tests_jk
                 radius = value;
             }
         }
+        
     }
 }
