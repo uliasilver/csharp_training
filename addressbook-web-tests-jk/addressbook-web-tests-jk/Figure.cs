@@ -9,17 +9,19 @@ namespace addressbook_web_tests_jk
     class Figure
     {
         private bool colored = false;
-    
-    public bool Colored
-    {
 
-        get
+        public bool Colored
         {
-            return colored;
-        }
-        set
-        {
-            colored = value;
+
+            get
+            {
+                return colored;
+            }
+            set
+            {
+                colored = value;
+            }
         }
     }
+
 }
