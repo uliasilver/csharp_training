@@ -44,7 +44,7 @@ namespace addressbook_web_tests_jk
         public void CroupCreationTests()
         {
             HomePage();
-            Login(new AccountData ("admin", "secret"));
+            Login(new AccountData("admin", "secret"));
             GoToGroupsPage();
             InitGroupCreation();
             GroupData group = (new GroupData("aaa"));
@@ -53,12 +53,18 @@ namespace addressbook_web_tests_jk
             FillGroupForm(group);
             SubmitGroupCreation();
             ReturnToGroupsPage();
+            Logout();
+        }
+
+        private void Logout()
+        {
+            driver.FindElement(By.LinkText("Logout")).Click();
         }
 
         private void ReturnToGroupsPage()
         {
             driver.FindElement(By.LinkText("group page")).Click();
-            driver.FindElement(By.LinkText("Logout")).Click();
+          //  driver.FindElement(By.LinkText("Logout")).Click();
         }
 
         private void SubmitGroupCreation()
