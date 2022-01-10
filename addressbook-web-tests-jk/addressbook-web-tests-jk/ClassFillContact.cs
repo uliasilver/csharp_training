@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace addressbook_web_tests_jk
 {
-    class ClassFillContact
+     public class ClassFillContact
     {
         private string firstname;
         private string middlename;
