@@ -16,11 +16,11 @@ namespace addressbook_web_tests_jk
         [Test]
         public void NewContactTest()
         {
-            HomePage();
-            Login(new AccountData("admin", "secret"));
-            GotoAddNew();
-            FillContact( new ClassFillContact ("test", "testov"));
-            LogOut();
+            app.Navigator.HomePage();
+            app.Auth.Login(new AccountData("admin", "secret"));
+            app.Contact.GotoAddNew();
+            app.Contact.FillContact( new ClassFillContact ("test", "testov"));
+            app.Auth.Logout();
         }
 
        

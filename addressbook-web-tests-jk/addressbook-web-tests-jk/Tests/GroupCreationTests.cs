@@ -17,17 +17,17 @@ namespace addressbook_web_tests_jk
         [Test]
         public void CroupCreationTests()
         {
-            HomePage();
-            Login(new AccountData("admin", "secret"));
-            GoToGroupsPage();
-            InitGroupCreation();
+            app.Navigator. HomePage();
+            app.Auth.Login(new AccountData("admin", "secret"));
+            app.Navigator.GoToGroupsPage();
+            app.Groups. InitGroupCreation();
             GroupData group = (new GroupData("aaa"));
             group.Header = "ttt";
             group.Footer = "ggg";
-            FillGroupForm(group);
-            SubmitGroupCreation();
-            ReturnToGroupsPage();
-            Logout();
+            app.Groups. FillGroupForm(group);
+            app.Groups. SubmitGroupCreation();
+            app.Groups.ReturnToGroupsPage();
+            app.Auth.Logout();
         }
 
         
