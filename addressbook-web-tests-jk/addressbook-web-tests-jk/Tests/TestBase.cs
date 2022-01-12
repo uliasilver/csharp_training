@@ -12,26 +12,18 @@ namespace addressbook_web_tests_jk
     {
 
 
-        //protected IWebDriver driver;
-        //private StringBuilder verificationErrors;
-        //protected string baseURL;
-        //private bool acceptNextAlert = true;
+        
+        
 
         protected ApplicationManager app;
 
         [SetUp]
         public void SetupTest()
         {
-            // driver = new FirefoxDriver();
-            // baseURL = "http://localhost/addressbook/addressbook";
-            // verificationErrors = new StringBuilder();
-
-            // logInOutHelper = new LogInOutHelper(driver);
-            //navigator = new NavigationHelper(driver, baseURL);
-            // groupHelper = new GroupHelper(driver);
-            // contactHelper = new ContactHelper(driver);
+             
             app = new ApplicationManager();
-
+            app.Navigator.HomePage();
+            app.Auth.Login(new AccountData("admin", "secret"));
 
         }
 

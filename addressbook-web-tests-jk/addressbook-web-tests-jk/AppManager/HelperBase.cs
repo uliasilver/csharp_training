@@ -15,6 +15,8 @@ namespace addressbook_web_tests_jk
         protected IWebDriver driver;
         public HelperBase (IWebDriver driver) {
             this.driver = driver;
+            
+
         }
     }
 }

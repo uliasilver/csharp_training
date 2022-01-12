@@ -17,34 +17,49 @@ namespace addressbook_web_tests_jk
         [Test]
         public void CroupCreationTests()
         {
-            app.Navigator. HomePage();
-            app.Auth.Login(new AccountData("admin", "secret"));
-            app.Navigator.GoToGroupsPage();
-            app.Groups. InitGroupCreation();
+            
+            
             GroupData group = (new GroupData("aaa"));
             group.Header = "ttt";
             group.Footer = "ggg";
-            app.Groups. FillGroupForm(group);
-            app.Groups. SubmitGroupCreation();
-            app.Groups.ReturnToGroupsPage();
+            app.Navigator.GoToGroupsPage();
+            app.Groups
+                .InitGroupCreation()
+                .FillGroupForm(group)
+                .SubmitGroupCreation()
+                .ReturnToGroupsPage();
             app.Auth.Logout();
         }
 
-        
 
-        
+        public void EmptyCroupCreationTests()
+        {
 
-        
+            
+            GroupData group = (new GroupData(""));
+            group.Header = "";
+            group.Footer = "";
+            app.Navigator.GoToGroupsPage();
+            app.Groups
+                .InitGroupCreation()
+                .FillGroupForm(group)
+                .SubmitGroupCreation()
+                .ReturnToGroupsPage();
+            app.Auth.Logout();
+        }
 
-        
 
-        
 
-        
 
-        
 
-   
-        
+
+
+
+
+
+
+
+
+
     }
 }

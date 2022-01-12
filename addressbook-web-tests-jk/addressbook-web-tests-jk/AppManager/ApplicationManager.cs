@@ -13,7 +13,7 @@ namespace addressbook_web_tests_jk
     {
         protected IWebDriver driver;
 
-        protected string baseURL;
+        protected string baseURL = "http://localhost";
         private bool acceptNextAlert = true;
 
         protected LogInOutHelper logInOutHelper;
@@ -22,6 +22,7 @@ namespace addressbook_web_tests_jk
         protected ContactHelper contactHelper;
         public ApplicationManager()
         {
+            driver = new FirefoxDriver();
             logInOutHelper = new LogInOutHelper(driver);
             navigator = new NavigationHelper(driver, baseURL);
             groupHelper = new GroupHelper(driver);

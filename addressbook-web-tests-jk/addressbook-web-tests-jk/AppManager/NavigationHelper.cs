@@ -11,7 +11,7 @@ namespace addressbook_web_tests_jk
 {
    public class NavigationHelper : HelperBase
     {
-        private IWebDriver driver;
+       // private IWebDriver driver;
         private string baseURL;
 
         public NavigationHelper(IWebDriver driver, string baseURL) : base(driver)
@@ -21,7 +21,9 @@ namespace addressbook_web_tests_jk
         }
         public void HomePage()
         {
-            driver.Navigate().GoToUrl(baseURL);
+            driver.Navigate().GoToUrl(baseURL+ "/addressbook/addressbook");
+            
+         
             driver.FindElement(By.Name("user")).Click();
             driver.FindElement(By.Name("user")).Click();
         }
