@@ -14,7 +14,7 @@ namespace addressbook_web_tests_jk
        // private IWebDriver driver;
         private string baseURL;
 
-        public NavigationHelper(IWebDriver driver, string baseURL) : base(driver)
+        public NavigationHelper(ApplicationManager manager, string BaseURL) : base(manager)
         {
             
             this.baseURL = baseURL;

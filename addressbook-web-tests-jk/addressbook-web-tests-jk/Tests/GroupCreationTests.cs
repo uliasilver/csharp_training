@@ -22,12 +22,9 @@ namespace addressbook_web_tests_jk
             GroupData group = (new GroupData("aaa"));
             group.Header = "ttt";
             group.Footer = "ggg";
-            app.Navigator.GoToGroupsPage();
-            app.Groups
-                .InitGroupCreation()
-                .FillGroupForm(group)
-                .SubmitGroupCreation()
-                .ReturnToGroupsPage();
+            //app.Navigator.GoToGroupsPage();
+            app.Groups.Create(group);
+              
             app.Auth.Logout();
         }
 
@@ -39,12 +36,9 @@ namespace addressbook_web_tests_jk
             GroupData group = (new GroupData(""));
             group.Header = "";
             group.Footer = "";
-            app.Navigator.GoToGroupsPage();
-            app.Groups
-                .InitGroupCreation()
-                .FillGroupForm(group)
-                .SubmitGroupCreation()
-                .ReturnToGroupsPage();
+            //app.Navigator.GoToGroupsPage();
+            app.Groups.Create(group);
+               
             app.Auth.Logout();
         }
 

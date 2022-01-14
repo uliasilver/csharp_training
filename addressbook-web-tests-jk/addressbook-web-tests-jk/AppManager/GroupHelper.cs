@@ -13,9 +13,20 @@ namespace addressbook_web_tests_jk
     {
         
 
-        public GroupHelper(IWebDriver driver) : base(driver)
+        public GroupHelper(ApplicationManager manager) : base(driver)
         {
             
+        }
+
+        public GroupHelper Create(GroupData group)
+        {
+            manager.Navigator.GoToGroupsPage()
+
+                .InitGroupCreation()
+                .FillGroupForm(group)
+                .SubmitGroupCreation()
+                .ReturnToGroupsPage();
+            return this;
         }
         public GroupHelper InitGroupCreation()
         {

@@ -23,10 +23,15 @@ namespace addressbook_web_tests_jk
         public ApplicationManager()
         {
             driver = new FirefoxDriver();
-            logInOutHelper = new LogInOutHelper(driver);
-            navigator = new NavigationHelper(driver, baseURL);
-            groupHelper = new GroupHelper(driver);
-            contactHelper = new ContactHelper(driver);
+            logInOutHelper = new LogInOutHelper(this);
+            navigator = new NavigationHelper(this, baseURL);
+            groupHelper = new GroupHelper(this);
+            contactHelper = new ContactHelper(this);
+        }
+        public IWebDriver Driver { get
+            {
+                return driver;
+            }
         }
 
         public void Stop()
@@ -70,6 +75,8 @@ namespace addressbook_web_tests_jk
                 return contactHelper;
             }
         }
+
+       
     }
     }
     

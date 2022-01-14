@@ -13,7 +13,7 @@ namespace addressbook_web_tests_jk
     {
         
 
-        public LogInOutHelper(IWebDriver driver) : base (driver)
+        public LogInOutHelper(ApplicationManager manager) : base (manager)
         {
             
         }
