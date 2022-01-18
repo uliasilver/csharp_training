@@ -16,29 +16,15 @@ namespace addressbook_web_tests_jk
         [Test]
         public void NewContactTest()
         {
+
             
-            app.Contact.GotoAddNew();
-            app.Contact.FillContact( new ClassFillContact ("test", "testov"));
+            app.Contact.CreateContact();
+            
             app.Auth.Logout();
         }
 
-       
-
         
 
-       
-
-        
-
-       
-
-        
-
-        
-
-       
-
-        
         
     }
 }

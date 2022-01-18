@@ -11,10 +11,10 @@ namespace addressbook_web_tests_jk
 {
    public class NavigationHelper : HelperBase
     {
-       // private IWebDriver driver;
+       
         private string baseURL;
 
-        public NavigationHelper(ApplicationManager manager, string BaseURL) : base(manager)
+        public NavigationHelper(ApplicationManager manager, string baseURL) : base(manager)
         {
             
             this.baseURL = baseURL;

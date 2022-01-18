@@ -11,18 +11,28 @@ namespace addressbook_web_tests_jk
 {
     public class ContactHelper : HelperBase
     {
-        public ContactHelper (IWebDriver driver) : base(driver)
+        public ContactHelper (ApplicationManager manager) : base(manager)
         {
 
         }
-        public void GotoAddNew()
-        {
 
+        
+
+        public ContactHelper CreateContact()
+        {
+            GotoAddNew();
+            FillContact(new ClassFillContact("test", "testov"));
+            return this; ;
+        }
+
+        public ContactHelper GotoAddNew()
+        {
             driver.FindElement(By.LinkText("add new")).Click();
+            return this;
         }
-        public void FillContact(ClassFillContact group)
-        {
 
+        public ContactHelper FillContact(ClassFillContact group)
+        {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
             driver.FindElement(By.Name("firstname")).SendKeys(group.Firstname);
@@ -30,7 +40,12 @@ namespace addressbook_web_tests_jk
             driver.FindElement(By.Name("middlename")).Clear();
             driver.FindElement(By.Name("middlename")).SendKeys(group.Middlename);
             driver.FindElement(By.XPath("//div[@id='content']/form/input[21]")).Click();
+            return this;
         }
+
+            
+       
+       
 
     }
 }

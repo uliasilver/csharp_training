@@ -14,7 +14,7 @@ namespace addressbook_web_tests_jk
         protected IWebDriver driver;
 
         protected string baseURL = "http://localhost";
-        private bool acceptNextAlert = true;
+        //private bool acceptNextAlert = true;
 
         protected LogInOutHelper logInOutHelper;
         protected NavigationHelper navigator;
@@ -23,6 +23,8 @@ namespace addressbook_web_tests_jk
         public ApplicationManager()
         {
             driver = new FirefoxDriver();
+            baseURL = "http://localhost";
+
             logInOutHelper = new LogInOutHelper(this);
             navigator = new NavigationHelper(this, baseURL);
             groupHelper = new GroupHelper(this);

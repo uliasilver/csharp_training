@@ -12,7 +12,7 @@ namespace addressbook_web_tests_jk
 {
     public class HelperBase
     {
-        private ApplicationManager manager;
+        protected ApplicationManager manager;
         protected IWebDriver driver;
         public HelperBase (ApplicationManager manager) {
             this.manager = manager;
