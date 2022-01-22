@@ -20,6 +20,8 @@ namespace addressbook_web_tests_jk
         protected NavigationHelper navigator;
         protected GroupHelper groupHelper;
         protected ContactHelper contactHelper;
+        private bool acceptNextAlert;
+
         public ApplicationManager()
         {
             driver = new FirefoxDriver();
@@ -47,6 +49,56 @@ namespace addressbook_web_tests_jk
                 // Ignore errors if unable to close the browser
             }
         }
+
+        public bool IsElementPresent(By by)
+        {
+            try
+            {
+                driver.FindElement(by);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+
+        public bool IsAlertPresent()
+        {
+            try
+            {
+                driver.SwitchTo().Alert();
+                return true;
+            }
+            catch (NoAlertPresentException)
+            {
+                return false;
+            }
+        }
+
+        public string CloseAlertAndGetItsText()
+        {
+            try
+            {
+                IAlert alert = driver.SwitchTo().Alert();
+                string alertText = alert.Text;
+                if (acceptNextAlert)
+                {
+                    alert.Accept();
+                }
+                else
+                {
+                    alert.Dismiss();
+                }
+                return alertText;
+            }
+            finally
+            {
+                acceptNextAlert = true;
+            }
+        }
+
+
         public LogInOutHelper Auth
         {
             get
@@ -78,7 +130,13 @@ namespace addressbook_web_tests_jk
             }
         }
 
-       
+        public ContactHelper Remove
+        {
+            get
+            {
+                return contactHelper;
+            }
+        }
     }
     }
     

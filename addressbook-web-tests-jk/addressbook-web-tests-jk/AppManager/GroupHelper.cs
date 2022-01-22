@@ -25,16 +25,31 @@ namespace addressbook_web_tests_jk
             InitGroupCreation();
             FillGroupForm(group);
             SubmitGroupCreation();
-                ReturnToGroupsPage();
+            ReturnToGroupsPage();
             return this;
         }
+
+        public GroupHelper Modify(int index, GroupData newData)
+        {
+            manager.Navigator.GoToGroupsPage();
+            SelectGroup(index);
+            InitGroupModification();
+            FillGroupForm(newData);
+            SubmitGroupModification();
+            ReturnToGroupsPage();
+            return this;
+        }
+
+        
+
+       
 
         public GroupHelper Remove(int index)
         { 
             
             manager.Navigator.GoToGroupsPage();
 
-            SelectGroup(1);
+            SelectGroup(index);
             RemoveGroup();
             ReturnToGroupsPage();
             return this;
@@ -74,7 +89,15 @@ namespace addressbook_web_tests_jk
         }
         public GroupHelper SelectGroup(int index)
         {
-            driver.FindElement(By.XPath("//div[@id='content']/form/span[" + index + "]")).Click();
+            
+            var groups =  driver.FindElements(By.ClassName("group"));
+            var cnt = groups.Count;
+            
+            groups[0].Click();
+            var groups2 = driver.FindElements(By.Name("selected[]"));
+            var cnt2 = groups2.Count;
+            
+            groups2[1].Click();
             return this;
         }
 
@@ -84,6 +107,17 @@ namespace addressbook_web_tests_jk
             return this;
         }
 
+        public GroupHelper InitGroupModification()
+        {
+            driver.FindElement(By.Name("edit")).Click();
+            return this;
+        }
+
+        public GroupHelper SubmitGroupModification()
+        {
+            driver.FindElement(By.Name("update")).Click();
+            return this;
+        }
     }
        
     }
