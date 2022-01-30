@@ -9,7 +9,7 @@ namespace addressbook_web_tests_jk
 
 {
     [TestFixture]
-    public class GroupCreationTests : TestBase
+    public class GroupCreationTests : AuthTestBase
     {
         
         
@@ -25,7 +25,7 @@ namespace addressbook_web_tests_jk
             
             app.Groups.Create(group);
               
-            app.Auth.Logout();
+            app.Auth.LogOut();
         }
 
 
@@ -39,7 +39,7 @@ namespace addressbook_web_tests_jk
             
             app.Groups.Create(group);
                
-            app.Auth.Logout();
+            app.Auth.LogOut();
         }
 
 

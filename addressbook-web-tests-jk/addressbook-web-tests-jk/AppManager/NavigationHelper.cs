@@ -21,6 +21,10 @@ namespace addressbook_web_tests_jk
         }
         public void HomePage()
         {
+            if (driver.Url == baseURL + "/addressbook/addressbook")
+            {
+                return;
+            }
             driver.Navigate().GoToUrl(baseURL+ "/addressbook/addressbook");
             
          
@@ -29,6 +33,11 @@ namespace addressbook_web_tests_jk
         }
         public void GoToGroupsPage()
         {
+            if (driver.Url == baseURL + "/addressbook/addressbook/group.php"
+                && IsElementPresent(By.Name("new")))
+            {
+                return;
+            }
             driver.FindElement(By.LinkText("groups")).Click();
         }
     }

@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace addressbook_web_tests_jk
 {
     [TestFixture]
-    public class NewContact : TestBase
+    public class NewContact : AuthTestBase
     {
         
         [Test]
@@ -19,8 +19,7 @@ namespace addressbook_web_tests_jk
 
             
             app.Contact.CreateContact();
-            
-            app.Auth.Logout();
+            app.Auth.LogOut();
         }
 
         
